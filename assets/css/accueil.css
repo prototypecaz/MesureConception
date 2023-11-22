@@ -1,0 +1,790 @@
+
+@font-face {
+    font-family: 'Italiana';
+    src: url('../font/Italiana-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Libre';
+    src: url('../font/LibreBaskerville-Regular.ttf');
+}
+
+
+body{
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+
+
+/*.containerAccueil{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('../images/weldingAccueilRecadrerB&WContrast.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 62%;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10rem;
+    
+}
+
+header{
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem 0.7rem;
+    align-items: center;
+    padding-top: env(safe-area-inset-top);
+
+}
+
+.coordonneesHeader,header,.containerLienMobilier{
+    display: flex;
+}
+
+.coordonneesHeader{
+    flex-direction: column;
+    font-family: 'Libre';
+    font-size: 1rem;
+}
+
+.containerTitre{
+    margin-top: -5rem;
+}
+
+.containerTitre>p{
+    text-align: right;
+   
+}
+
+.titreAccueil{
+    text-align: right;
+    font-size: 3.1rem;
+    padding-right: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Italiana';
+}
+
+.ligne{
+    height: 0.1rem;
+    background-color: white;
+}
+
+.ligne1{
+    width: 3rem;
+    float: right;
+}
+
+.ligne2{
+    height: 6rem;
+    width: 0.1rem;
+    background-color: white;
+}
+
+.containerTexte{
+display: flex;
+}
+
+.containerTexte   > div:first-child{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.texteAccueil{
+   padding-left:4rem;
+   padding-right:2rem;
+   font-size:0.9rem
+}
+
+.containerSociaux{
+    display: flex;
+    flex-direction: column;
+    gap:0.6rem;
+    width: 10%;
+    padding-bottom: 1rem;
+    margin-right: 0.5rem;
+}
+
+.rond{
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.and{
+    margin-bottom: 1rem;
+    display: inline-block;
+
+}
+
+.containerInformation,.containerAllLienMobilier{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.containerAllLienMobilier{
+    margin-bottom: 5rem;
+    gap:0.8rem
+}
+
+.containerAllLienMobilier{
+   align-items: end;
+   
+}
+
+.containerLienMobilier{
+    gap:1rem;
+    align-items: center
+}
+
+.lienMobilier{
+    text-decoration: none;
+    color:#74E5B6;
+    font-size: 1rem;
+}
+
+.ligneVert{
+    background-color: #74E5B6;
+    height: 0.1rem;
+}
+
+.ligneVert1{
+width: 1rem;
+}
+.ligneVert2{
+    width: 1.5rem;
+}
+.ligneVert3{
+    width: 2rem;
+}
+
+.reseauSociaux{
+    padding: 0.3rem;
+}
+
+.section{
+
+}
+
+#section1{
+    background-color: blueviolet;
+}
+
+#section2{
+    background-color: rgb(20, 240, 101)!important;
+}
+
+#section3{
+    background-color: rgb(240, 192, 20);
+}
+
+*/
+
+.section{
+    height: 100vh;
+}
+
+.fp-table{
+    justify-content: start!important;
+}
+
+#section1 > .fp-overflow{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between!important;
+    height: 100vh;
+}
+
+
+
+#section2{
+    background-color: black;
+    color:white;
+
+}
+
+#section1{
+    background-image: url('../images/weldingAccueilRecadrerB&WContrast.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 62%;
+    color:white;
+    position: relative;
+}
+
+.coordonneesHeader,header,.containerLienMobilier{
+    display: flex;
+}
+
+header{
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem 0.7rem;
+    align-items: center;
+}
+
+.coordonneesHeader{
+    flex-direction: column;
+    font-family: 'Libre';
+    font-size: 1rem;
+}
+
+.containerTitre{
+    margin-top: -5rem;
+}
+
+.containerTitre>p{
+    text-align: right;
+   
+}
+
+.titreAccueil{
+    text-align: right;
+    font-size: 3.1rem;
+    padding-right: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Italiana';
+}
+
+.ligne{
+    height: 0.1rem;
+    background-color: white;
+}
+
+.ligne1{
+    width: 3rem;
+    float: right;
+}
+
+.ligneVertical1{
+    height: 100%;
+    width: 0.1rem;
+    background-color: white;
+    position: absolute;
+    top:-5.5rem;
+    z-index: 2;
+    left:40%
+}
+
+.ligneVertical2{
+    height: 100px;
+    width: 0.1rem;
+    background-color: white;
+    position: absolute;
+    left:40%
+}
+
+.ligneHorizontal{
+    height: 0.1rem;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+}
+
+.containerTexte{
+display: flex;
+justify-content: end;
+}
+
+#containerDiv{
+    height: 240px;
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    transform: translate(0,55%);
+    width: 100%;
+    margin-top:2rem;
+}
+
+.containerTexte   > div:first-child{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.texteAccueil{
+   padding-left:4rem;
+   padding-right:2rem;
+   font-size:0.9rem
+}
+
+.containerSociaux{
+    display: flex;
+    flex-direction: column;
+    gap:0.6rem;
+    width: 10%;
+    padding-bottom: 1rem;
+    margin-right: 0.5rem;
+}
+
+.rond{
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.and{
+    margin-bottom: 1rem;
+    display: inline-block;
+
+}
+
+.containerInformation,.containerAllLienMobilier{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.containerAllLienMobilier{
+    margin-bottom: 5rem;
+    gap:0.8rem
+}
+
+.containerAllLienMobilier{
+   align-items: end;
+   
+}
+
+.containerLienMobilier{
+    gap:1rem;
+    align-items: center
+}
+
+.lienMobilier{
+    text-decoration: none;
+    color:#74E5B6;
+    font-size: 1rem;
+}
+
+.ligneVert{
+    background-color: #74E5B6;
+    height: 0.1rem;
+}
+
+.ligneVert1{
+width: 1rem;
+}
+.ligneVert2{
+    width: 1.5rem;
+}
+.ligneVert3{
+    width: 2rem;
+}
+
+.reseauSociaux{
+    padding: 0.3rem;
+}
+
+.containerSousAccueil{
+    top:30%;
+    opacity: 0;
+    font-family: 'Libre';
+}
+
+.containerSousAccueil > h2{
+font-size: 3rem;
+margin:0.5rem 0;
+padding: 1rem;
+}
+
+.containerSousAccueil > p{
+    padding: 1rem 1rem 0 1rem;
+    margin:0
+}
+    
+#section2 > .fp-overflow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center!important;
+    height: 100vh;
+  position: relative;
+  overflow: initial;
+}
+
+
+
+.divTest{
+    overflow: hidden;
+    height: 100%;
+    transform-origin: bottom;
+    transform: translateY(100%);
+    position: absolute;
+    width: 100%;
+}
+
+.imageSlide{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.texteBtn{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+.texteBtn > span{
+    font-size: 0.9rem;
+    font-family: 'Italiana';
+    
+}
+
+.texteBtn > a,.containerDriven > a{
+    border-left: 2px solid white;  /* Bordure à gauche */
+    border-top: 2px solid white;   /* Bordure en haut */
+    border-bottom: none; /* Bordure en bas */
+    border-right: 2px solid white; /* Aucune bordure à droite */
+    /* Autres styles pour votre lien */
+    text-decoration: none; /* Enlève le soulignement par défaut des liens */
+    color: rgb(255, 255, 255); /* Couleur du texte du lien */
+    padding: 0.7rem 1rem;
+    font-family: 'Libre';
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    
+}
+
+.divTest4{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#section3{
+    background-color: black;
+    color:white
+}
+
+#section3 > .fp-overflow{
+    height: 100vh;
+    justify-content: center!important;
+    display: flex;
+}
+
+.containerDriven{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1rem;
+    align-items: flex-start;
+    overflow: hidden;
+    font-family: 'Libre';
+}
+
+.containerDriven > h2{
+    font-size: 3rem;
+    margin: 0;
+    font-family: 'Libre';
+    font-weight: bold;
+}
+.containerDriven > span,.containerDriven > p ,.containerDriven > a, .containerDriven > h2{
+    transform: translateX(-65%);
+    margin: 0 1rem;
+    opacity: 0;
+    will-change: transform,opacity;
+}
+
+.containerDriven > span,.containerDriven > p ,.containerDriven > a {
+    font-family: 'Libre';
+}
+
+.containerDriven > span{
+    font-size: 0.9rem;
+}
+
+.containerDriven > a {
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+}
+
+#section3 > .fp-overflow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#section4 > .fp-overflow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#section4{
+    background-color: black;
+    color:white
+}
+
+
+
+.titleSpiral,.textSpiral{
+    transform: translateY(0);
+}
+
+
+.containerTexteSpiral > h3{
+    font-size: 2.5rem;
+    margin-top: 6rem ;
+    margin-bottom: 0;
+    font-family: 'Libre';
+    opacity: 0;
+}
+
+.containerTexteSpiral > p{
+    font-family: 'Libre';
+    text-align: center;
+    padding: 1.5rem;
+}
+
+
+.containerTexteSpiral{
+    display: flex;
+    flex: 1;
+    will-change: transform!important;
+    align-items: center;
+}
+
+
+.containerElement{
+    height: 100%;   
+    flex: 0 0 100vw;
+    position: relative;
+    display: flex;
+    align-items:center;
+    background: linear-gradient(to top left, #F7F7F7 55%, #ECECEC 50%);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contentElement{
+    display: flex;
+    justify-content: end;
+    width: 100vw;
+    align-items: end;
+    height: 80%;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    padding-top:4rem
+}
+
+
+
+.contentTitle{
+    position: relative;
+    padding:1rem
+}
+
+.titleProd {
+    color: #727272;
+    position: absolute;
+    font-size: 4rem;
+    font-family: 'Italiana';
+    z-index: 1;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+    -1px  1px 0 rgb(255, 255, 255),
+     1px  1px 0 rgb(255, 255, 255);
+     top:-3rem;
+    left:-25%;
+     font-weight: bold;
+     margin:0
+   
+}
+.containerImgHorizon > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+}
+
+.containerImgHorizon{
+    height: 55%;
+    width: 70%;
+    margin:1rem 1rem 3rem 1rem;
+    position: relative;
+ 
+}
+
+.imageElement{
+    /*transform: translateY(100%);*/
+}
+
+.titleElement{
+    /*transform: translateX(150%);*/
+  
+}
+
+.presentProd{
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    align-items: start;
+   
+}
+
+.textProd{
+    padding: 0 1rem 2rem 1rem;
+    font-family: 'Libre';
+    font-size: 0.7rem;
+    font-style: italic;
+    color:#313131
+}
+
+#section5 > .fp-overflow{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:rgb(255, 255, 255);
+    height:100vh
+}
+
+
+
+.informationContact{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1rem 0 1rem;
+    align-self: start;
+    
+}
+
+.informationContact > p {
+    margin:1rem 0 0 0;
+    font-size: 1rem;
+    font-family: 'Libre';
+    
+}
+
+.containerInformContact{
+    height: 78svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2rem;
+    align-items: center;
+    
+}
+
+
+.contactReseaux{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding:0 1rem;
+    font-family: 'Libre';
+}
+
+.fp-watermark{
+    display: none!important;
+}
+
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 681.99px) {
+    /* Vos styles CSS vont ici */
+    html{
+        font-size: 1.3rem;
+    }
+
+    .titreAccueil{
+        font-size: 11vw;
+    }
+
+    #containerDiv {
+        height: 350px;
+    }
+
+    .containerSousAccueil > h2,.containerDriven > h2 {
+        font-size: 3rem;
+    }
+
+    #containerDiv {
+        height: 300px;
+    }
+
+    .texteBtn > span,.texteBtn > a{
+        font-size: 1.2rem;
+    }
+
+    .containerDriven > p {
+        padding-right: 2rem;
+     }
+
+    .containerImgHorizon{
+      
+        width: 70%;
+    }
+
+    .titleProd{
+        top:-2.5rem;
+        font-size:4rem
+    }
+ 
+}
+
+@media only screen and (min-width: 682px) and (max-width: 810.99px) {
+    /* Vos styles CSS vont ici */
+    html{
+        font-size: 1.3rem;
+    }
+
+    .titreAccueil{
+        font-size: 11vw;
+    }
+
+    #containerDiv {
+        height: 350px;
+    }
+
+    .containerSousAccueil > h2,.containerDriven > h2 {
+        font-size: 3rem;
+    }
+
+    .containerSousAccueil > p{
+        font-size: 1rem;
+        padding-right: 5rem;
+    }
+
+    .texteBtn > span,.texteBtn > a{
+        font-size: 1.2rem;
+    }
+
+    .containerDriven > p {
+       padding-right: 3rem;
+    }
+
+    .containerImgHorizon{
+       
+       width: 70%;
+    }
+
+    .titleProd{
+       
+        font-size:5rem
+    }
+ 
+}
