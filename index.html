@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./assets/css/accueil.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/accueil1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" integrity="sha512-otONSJGv1l0LjJXcgyqi2MeKXtnthkiXAleeQjFJOKYcVD5u+mOuPb7xCnlsb74Ld+N0ONbP7KYRmW2/OWrvaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
+    <style>
+       
+      </style>
 </head>
 
 <body>
-    <div style="position: fixed;top:0;right:0;z-index: 2;">
-        <svg fill="none" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
+    <div style="position: fixed;top:0;right:0;z-index: 2;width: 40vw;height: 100%;display: flex;align-items: end;flex-direction: column;overflow: hidden;">
+        <svg id="menuBurger" fill="none" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
             <path class="pathBurger" d="m12 7h7m-14 5h14m-14 5h7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
         </svg>
+        <div id="menu" >
+                <div class="containerAncre">
+                    <div>
+                        <a href="">SERVICES</a>
+                        <a href="">A PROPOS</a>
+                        <a href="">PROJET</a>
+                        <a href="">MOBILIER</a>
+                    </div>
+                </div>
+        </div>
     </div>
 
+    <div class="divResize">
+      
+    </div>
     <div id="fullPage" style="position: relative;">
 
         
@@ -30,28 +45,26 @@
                
             </header>
 
+            <span class="spanLoad">0%</span>
+
             <div class="containerTitre">
-                <h1 class="titreAccueil">Mesures <br><span class="and">&</span> <br/> Conception</h1>
+                
+                <h1 class="titreAccueil">Mesure <span class="and">&</span> <br/> Conception</h1>
                 <div class="ligne ligne1"></div>
             </div>
 
             <div class="containerInformation"> 
-                <div class="containerAllLienMobilier">
-                    <div class="containerLienMobilier">
-                        <a href="" class="lienMobilier">PORTAIL</a>
-                        <div class="ligneVert ligneVert1"></div>
-                    </div>
-                    <div class="containerLienMobilier">
-                        <a href="" class="lienMobilier">ESCALIER</a>
-                        <div class="ligneVert ligneVert2"></div>
-                    </div>
-                    <div class="containerLienMobilier">
-                        <a href="" class="lienMobilier">MOBILIER</a>
-                        <div class="ligneVert ligneVert3"></div>
+               
+                <div>
+                    <div class="containerMobilierDesktop">
+                        <p>
+                            Mesure et Conception est spécialisé dans le travail du métal et réalise des pièces uniques ou des séries limitées pour le compte de professionnels et de particuliers. limitées pour le compte de professionnels et de particuliers. 
+                        </p>
                     </div>
                 </div>
+               
                 <div class="containerTexte">
-                
+                    
                     
                     <div class="containerSociaux">
                         <div class="rond">
@@ -70,21 +83,28 @@
             <div class="containerSousAccueil">
                 <h2 class="titreSection2">Expert <br> en metalerie</h2>
                 <div class="ligneHorizontal"></div>
-                <p>
-                    A home isn’t built by accident.
+                <p class="textSection2">
+                    A home isn’t built by accident.<br>
                     At Home ± Space, we share our industry knowledge and experience so that architects and designers feel informed and empowered making all the small, yet meaningful decisions that create a home.
                 </p>
+                <div class="containerTexteBtn">
+                    <div class="texteBtn texteBtn1">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing </span>
+                        <a>PORTFOLIO</a>
+                    </div>
+                </div>
+              
             </div>
 
             <div id="containerDiv">
                 <div class="divTest divTest1">
-                    <img src="./assets/images/pum.jpg" class="imageSlide1 imageSlide">
+                    <img src="./assets/images/mesure1.jpg" class="imageSlide1 imageSlide">
                </div>
                <div class="divTest divTest2">
-                <img src="./assets/images/welding.jpg" class="imageSlide1 imageSlide">
+                <img src="./assets/images/mesure2.jpg" class="imageSlide1 imageSlide">
                 </div>
                 <div class="divTest divTest3">
-                    <img src="./assets/images/paper.jpg" class="imageSlide1 imageSlide">
+                    <img src="./assets/images/mesure3.jpg" class="imageSlide1 imageSlide">
                 </div>
                 <div class="divTest divTest4">
                     <div class="texteBtn">
@@ -101,19 +121,8 @@
            
       </div>
 
-      <div class="section" id="section3">
-        <div class="containerDriven">
-            <h2 class="titleDriven">Driven by <br> design</h2>
-            <p class="textDriven">Quality comes first in all our project.
-                because a beautiful home, much like a beautiful life is not created by chance, but by elaborate, intentional design.
-             </p>
-            <span class="spanDriven">
-                Learn about our mission.
-            </span>
-            <a class="ancreDriven">ABOUT US</a>
-        </div>
-      </div>
-      <div class="section" id="section4" style="position: relative;">
+      
+     <div class="section" id="section4" style="position: relative;">
             <div class="containerTexteSpiral" style="width:100%;height: 100%;">
                 
                 <div class="containerElement">
@@ -121,18 +130,45 @@
 
                     <div class="contentElement">
                      
+                        <h2 class="titleElementMob">ESCALIER</h2>
+
+                         <div class="containerElementSpiral">
                            
-
-                      
-
-                        <div class="containerImgHorizon">
-                            <h2 class="titleElement titleProd">ESCALIER</h2>
-                            <img class="imageElement"  src="./assets/images/stairs.jpg"/>
-                        </div>
-                       
-                        <div class="presentProd">
+                            <div class="containerTitleSpiral containerTitleSpiral1">
+                                <h2 class="titleElementDes">ESCALIER</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur. Congue dui euismod et lacinia tellus fermentum vestibulum vitae arcu. Arcu malesuada vel ac commodo. Nisi odio a aliquet cursus duis eros enim. Lobortis ultrices aliquet habitasse a diam commodo tristique sapien.</p>
+                                <table class="info-table">
+                                <tr>
+                                    <td class="title">Vandaag open tot 01:00<br>Meent 108, 3011 JR Rotterdam</td>
+                                </tr>
+                                <tr class="button-row">
+                                    <td>
+                                    <button class="button">RESERVEER <span class="icon">→</span></button>
+                                    </td>
+                                </tr>
+                                <tr class="button-row">
+                                    <td>
+                                    <button class="button">BEKIJK MENUKAART <span class="icon">↓</span></button>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                            <div class="containerImgHorizon">
+                             
+                               <div class="containerImage">
+                                <img class="imageElement"  src="./assets/images/escalier.jpg"/>
+                               </div> 
+                                <div class="presentProd" >
+                                    <span class="textProd">Mon super texte qui fait <span style="font-weight: bold;">plusieurs</span> ligne ou pas</span>
+                                </div>
+                            </div>
+                         </div>   
+                         <div class="presentProdMob">
                             <span class="textProd">Mon super texte qui fait <span style="font-weight: bold;">plusieurs</span> ligne ou pas</span>
-                        </div>
+                         </div>
+
+                       
+                       
                     </div>
 
                   
@@ -144,18 +180,45 @@
 
                     <div class="contentElement">
                      
+                        <h2 class="titleElementMob">PORTAIL</h2>
+
+                         <div class="containerElementSpiral">
                            
-
-                      
-
-                        <div class="containerImgHorizon">
-                            <h2 class="titleElement titleProd">RAMPE</h2>
-                            <img class="imageElement"  src="./assets/images/bridge.jpg"/>
-                        </div>
-                       
-                        <div class="presentProd">
+                            <div class="containerTitleSpiral containerTitleSpiral1">
+                                <h2 class="titleElementDes">PORTAIL</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur. Congue dui euismod et lacinia tellus fermentum vestibulum vitae arcu. Arcu malesuada vel ac commodo. Nisi odio a aliquet cursus duis eros enim. Lobortis ultrices aliquet habitasse a diam commodo tristique sapien.</p>
+                                <table class="info-table">
+                                <tr>
+                                    <td class="title">Vandaag open tot 01:00<br>Meent 108, 3011 JR Rotterdam</td>
+                                </tr>
+                                <tr class="button-row">
+                                    <td>
+                                    <button class="button">RESERVEER <span class="icon">→</span></button>
+                                    </td>
+                                </tr>
+                                <tr class="button-row">
+                                    <td>
+                                    <button class="button">BEKIJK MENUKAART <span class="icon">↓</span></button>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                            <div class="containerImgHorizon">
+                            
+                               <div class="containerImage">
+                                <img class="imageElement"  src="./assets/images/portail.jpg"/>
+                               </div> 
+                                <div class="presentProd" >
+                                    <span class="textProd">Mon super texte qui fait <span style="font-weight: bold;">plusieurs</span> ligne ou pas</span>
+                                </div>
+                            </div>
+                         </div>   
+                         <div class="presentProdMob">
                             <span class="textProd">Mon super texte qui fait <span style="font-weight: bold;">plusieurs</span> ligne ou pas</span>
-                        </div>
+                         </div>
+
+                       
+                       
                     </div>
 
                   
@@ -166,18 +229,45 @@
 
                     <div class="contentElement">
                      
+                        <h2 class="titleElementMob">MOBILIER</h2>
+
+                         <div class="containerElementSpiral">
                            
-
-                      
-
-                        <div class="containerImgHorizon">
-                            <h2 class="titleElement titleProd">MOBILIER</h2>
-                            <img class="imageElement"  src="./assets/images/eiffel.jpg"/>
-                        </div>
-                       
-                        <div class="presentProd">
+                            <div class="containerTitleSpiral containerTitleSpiral1">
+                                <h2 class="titleElementDes">MOBILIER</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur. Congue dui euismod et lacinia tellus fermentum vestibulum vitae arcu. Arcu malesuada vel ac commodo. Nisi odio a aliquet cursus duis eros enim. Lobortis ultrices aliquet habitasse a diam commodo tristique sapien.</p>
+                                <table class="info-table">
+                                <tr>
+                                    <td class="title">Vandaag open tot 01:00<br>Meent 108, 3011 JR Rotterdam</td>
+                                </tr>
+                                <tr class="button-row">
+                                    <td>
+                                    <button class="button">RESERVEER <span class="icon">→</span></button>
+                                    </td>
+                                </tr>
+                                <tr class="button-row">
+                                    <td>
+                                    <button class="button">BEKIJK MENUKAART <span class="icon">↓</span></button>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                            <div class="containerImgHorizon">
+                               
+                               <div class="containerImage">
+                                <img class="imageElement"  src="./assets/images/mobilier.jpg"/>
+                               </div> 
+                                <div class="presentProd" >
+                                    <span class="textProd">Mon super texte qui fait <span style="font-weight: bold;">plusieurs</span> ligne ou pas</span>
+                                </div>
+                            </div>
+                         </div>   
+                         <div class="presentProdMob">
                             <span class="textProd">Mon super texte qui fait <span style="font-weight: bold;">plusieurs</span> ligne ou pas</span>
-                        </div>
+                         </div>
+
+                       
+                       
                     </div>
 
                   
@@ -185,33 +275,36 @@
             </div>
 
           
-            <svg id="demo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style='position:absolute; top:0'>
-               
-                 
+           
+            <svg id="demo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100vh" style='position:absolute; top:0;'>
                 <defs>
                     <mask id="theMask">
                         <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
-                        <circle id="cover" r="10%" fill="black" cx="50%" cy="50%"/>
+                        <circle id="cover"  fill="black" />
+                
+                        <image id="circleLogo" xlink:href="./assets/images/logo.png"  />
                     </mask>  
                 </defs>
             
                 <g mask="url(#theMask)"> 
-                    
-                    <rect id="goAway" x="0" y="0" width="100%" height="100%" fill="#000" /> 
-                    <text class="titleSpiral" x="50%" y="17%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="2.5rem" font-family="'Libre'">
-                        About us to you 
-                    </text>
-                    <text class="textSpiral" x="50%" y="25%" dominant-baseline="middle" text-anchor="middle" width="100" fill="white"  font-family="'Libre'" font-size="1rem">
-                        C’est competence nous amene  
-                        <tspan x="50%" dy="1.2em">a travailler dans different domaines</tspan>
-                    </text>
+                    <rect id="goAway" x="0" y="0" width="100%" height="100%" fill="#000" />
                 </g>
-            
-              
             </svg>
+            
+            
+             <div class="containerDriven">
+                <h2 class="titleDriven titleDriven1">Driven by <br> design</h2>
+                <p class="textDriven textDriven1">Quality comes first in all our project.
+                    because a beautiful home, much like a beautiful life is not created by chance, but by elaborate, intentional design.
+                </p>
+                <span class="spanDriven spanDriven1">
+                    Learn about our mission.
+                </span>
+                <a class="ancreDriven ancreDriven1">ABOUT US</a>
+            </div>
       </div>
 
-      <div class="section" id="section5">
+      <!--<div class="section" id="section5">
                 <div class="containerInformContact">
                  
                     
@@ -222,15 +315,14 @@
                             </pattern>
                         </defs>
                     
-                        <!-- Chemin original pour le cercle avec l'image -->
+                      
                         <path id="SunCatcherStudio" fill="url(#imageFill)" stroke="none" 
                             d="M 32.550491,148.48008 A 108.15144,108.15144 0 0 1 140.70194,40.328644 108.15144,108.15144 0 0 1 248.85338,148.48008 108.15144,108.15144 0 0 1 140.70194,256.63153 108.15144,108.15144 0 0 1 32.550491,148.48008 Z" />
-                    
-                        <!-- Nouveau chemin pour le texte, avec un rayon réduit -->
+               
                         <path id="TextPath" fill="none" stroke="none" 
                         d="M 22.550491,148.48008 A 118.15144,118.15144 0 0 1 140.70194,30.328644 118.15144,118.15144 0 0 1 258.85338,148.48008 118.15144,118.15144 0 0 1 140.70194,266.63153 118.15144,118.15144 0 0 1 22.550491,148.48008 Z" />
                     
-                        <!-- Texte suivant le nouveau chemin -->
+                    
                         <text font-size="23" fill="white" letter-spacing="12" font-family="'Italiana'" font-weight="bold">
                             <textPath xlink:href="#TextPath" side="left" startOffset="100%" id="textPath1">
                                 ESCALIER / RAMPE / MOBILIER /
@@ -253,11 +345,38 @@
                     <p>Linkedin</p>
                     <p>Instagram</p>
                 </div>
-        </div>
+        </div>-->
+        <div class="section" id="section5">
+
+            <div class="containerTitreContact">
+                <img src="./assets/images/logoWhite.png"/>
+                <h1 class="titreContact"><span>CONTACT</span> <br> <span>US →</span></h1>
+            </div>
+            <div class="containerAdressContact">
+                <div class="address">
+                    <div class="anim-container">
+                        <p>ST PLAZA TSURUMAI Honkan 4A,</p>
+                        <p>5-11-33 Chiyoda Naka-ku,</p>
+                        <p>Nagoya-shi, Aichi</p>
+                        <p>460-0012 JAPAN.</p>
+                    </div>
+                    <div>
+                        <span>IG</span>
+                    </div>
+                  </div>
+                  
+                  <p class="copyright">&copy;CMYK Corp. All Rights Reserved.</p>
+            </div>
+           
+           
+          </div>
+
+          
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js" integrity="sha512-LGiXf+jHGTHcIybSsOWO3I/in+OObCkcEsWIZ7IyhzfD6RzD5qDUw2CK+JveuI7zTSEcDG//bIOvOpAJW2BWsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="./assets/js/fullPage.js"></script>
+    <script src="./assets/js/script1.js"></script>
+    <script src="./assets/js/menuBurger.js"></script>
 </body>
 </html>

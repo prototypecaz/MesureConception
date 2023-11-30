@@ -26,7 +26,7 @@ function animateElementY(selector,{y,x, opacity},delay =0, onCompleteAction) {
     ease: "power2.out",
     onComplete: () => {
       isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
-      if (onCompleteAction) onCompleteAction();
+      if (onCompleteAction) onCompleteAction(); console.log('okhi')
     },
   });
 }
@@ -40,7 +40,7 @@ function animateElement(selector, y, opacity, onCompleteAction) {
     ease: 'power2.out',
     onComplete: () => {
       isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
-      if (onCompleteAction) onCompleteAction();
+      if (onCompleteAction) onCompleteAction(); console.log('ok')
     }
   });
 }
@@ -76,15 +76,28 @@ function handleScrollEvent(startY, endY) {
       });
       animateElementY(DIV_TEST_SELECTORS[1], {  y: '100%', opacity: 1 });
     } else if (index === 3) {
-      animateElementY(DIV_TEST_SELECTORS[2], {  y: '100%', opacity: 1 }, () => {
-        updateIndexAndScrolling(4, "down", false);
+     
+
+      gsap.to('.titreSection2', {                      //DESKTOP
+        duration: 1,
+        transform: 'translateX(-50%)',
+        opacity:0,
+        ease: 'power2.out'
+      });
+  
+      gsap.to('.textSection2', {                       //DESKTOP
+        duration: 1,
+        transform: 'translateX(-50%)',
+        opacity:0,
+        delay:0.2,
+        ease: 'power2.out'
       });
 
-      animateElementY(".containerSousAccueil", { x: '-100%', opacity: 0 });
-
       animateElementY(DIV_TEST_SELECTORS[1], {  y: '100%', opacity: 1 });
-
-      gsap.to(".ligneVertical1", {
+      animateElementY(DIV_TEST_SELECTORS[3],  {  y: '0', opacity: 1 },0, () => {
+        updateIndexAndScrolling(4, "down", true);
+      });
+     /* gsap.to(".ligneVertical1", {
         duration: 1,
         y: "100%",
         opacity: 1,
@@ -97,10 +110,10 @@ function handleScrollEvent(startY, endY) {
 
       animateElementY(".ligneVertical1", {  y: '100%', opacity: 1 }, () => {
         animateElementY(DIV_TEST_SELECTORS[3],  {  y: '0', opacity: 1 });
-      });
-    } else if (index === 4) {
-      fullpage_api.setAllowScrolling(true, "down");
-    }
+      });*/
+
+      animateElementY(DIV_TEST_SELECTORS[2], {  y: '100%', opacity: 1 });
+    } 
   }else{
     console.log('teste')
     if (index === 0) {
@@ -109,6 +122,9 @@ function handleScrollEvent(startY, endY) {
         updateIndexAndScrolling(1, 'up',false);
       });
       animateElement(DIV_TEST_SELECTORS[0], '100%', 1)
+
+
+      
     } else if (index === 1) {
       animateElement(DIV_TEST_SELECTORS[2], '0%', 1, () => {
         updateIndexAndScrolling(2, 'down',true);
@@ -170,6 +186,7 @@ function handleScrollEvent(startY, endY) {
       });
       animateElementY(CONTAINER_SOUS_ACCUEIL,{ y: '0', opacity: 1 });
     } else if (index === 1) {
+        
       animateElementY(DIV_TEST_SELECTORS[0], {  y: '100%', opacity: 0 }, () => {
         updateIndexAndScrolling(0, "up", false);
       });
@@ -191,7 +208,21 @@ function handleScrollEvent(startY, endY) {
         updateIndexAndScrolling(3, "down", false);
       });
 
-      animateElementY(".containerSousAccueil", { x: '0%', opacity: 1 });
+      gsap.to('.titreSection2', {                      //DESKTOP
+        duration: 1,
+        transform: 'translateX(0%)',
+        opacity:1,
+        ease: 'power2.out'
+      });
+  
+      gsap.to('.textSection2', {                       //DESKTOP
+        duration: 1,
+        transform: 'translateX(0%)',
+        opacity:1,
+        delay:0.2,
+        ease: 'power2.out'
+      });
+
 
       gsap.to(".ligneVertical1", {
         duration: 0.9, // durée en secondes
@@ -251,14 +282,38 @@ function handleScrollEventCircle(startY, endY) {
 
     if (indexCircle == 0) {
       isAnimating = true;
+
+      gsap.to('#circleLogo', {
+        opacity: 0,
+        ease: 'power2.out',
+        duration:0.3,
+       onComplete: () => { gsap.to('.containerTitleSpiral1', {
+        x:'50%',
+      opacity:1,
+        duration:1,
+       
+        ease: 'power2.out',
+       
+      });}
+      });
+      
       gsap.to("#cover", {
         duration: 1,
-        attr: { r: "71%" },
+        r:'130%',
         onComplete: () => {
           isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
           updateIndexAndScrollingCircle(1, "up", false);
           gsap.set(".pathBurger", { stroke: `#727272` });
+         
         },
+      });
+
+      gsap.to('.containerDriven', {
+        opacity: 0,
+        duration:1,
+        x:'100%',
+        ease: 'power2.out',
+       
       });
     } else if (indexCircle == 1) {
       animateElementY(".containerTexteSpiral", { x: '-100%', y: '', opacity: 1 }, () => {
@@ -275,14 +330,29 @@ function handleScrollEventCircle(startY, endY) {
 
     if(indexCircle == 0){
       isAnimating = true;
-      gsap.to("#cover", {duration: 1, attr:{r:'110%'}, onComplete: () => {
+      gsap.to("#cover", {duration: 1, r:'103%', onComplete: () => {
         isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
         updateIndexAndScrollingCircle(1, 'up',false);
         gsap.set('.pathBurger', { stroke: `#727272` });
       
          //gsap.to('.imageElement', { y: 0, duration: 0.7 });
          //gsap.to('.titleElement', { x: 0, duration: 0.7 });
+        
       }});
+
+      gsap.to('#circleLogo', {
+        opacity: 0,
+        ease: 'power2.out',
+        duration:0.3,
+       onComplete: () => { gsap.to('.containerTitleSpiral1', {
+        x:'50%',
+      opacity:1,
+        duration:1,
+       
+        ease: 'power2.out',
+       
+      });}
+      });
 
       gsap.to('.containerDriven', {
         opacity: 0,
@@ -352,18 +422,38 @@ function handleScrollEventCircle(startY, endY) {
 
   }
   } else if (scrollDirection === "up") {
-
+    console.log("sisis tu scroll au debut")
     if(window.innerWidth <= 1024){
     if (indexCircle == 1) {
+      gsap.to('.containerTitleSpiral', {
+        x:'-50%',
+      opacity:0,
+        duration:1,
+       
+        ease: 'power2.out',
+    });
       isAnimating = true;
       gsap.to("#cover", {
         duration: 1,
-        attr: { r: "7%" },
+        r: "7%" ,
         onComplete: () => {
           isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
           updateIndexAndScrollingCircle(0, "up", true);
           gsap.set(".pathBurger", { stroke: `#fff` });
+          gsap.to('#circleLogo', {
+            opacity: 1,
+            ease: 'power2.out',
+           duration:0.5
+          });
         },
+      });
+
+      gsap.to('.containerDriven', {
+        opacity: 1,
+        duration:1,
+        x:'0',
+        ease: 'power2.out',
+       
       });
     } else if (indexCircle == 2) {
       animateElementY(".containerTexteSpiral", { x: '0', y: '', opacity: 1 }, () => {
@@ -377,13 +467,32 @@ function handleScrollEventCircle(startY, endY) {
       });
     }
   }else{
+
+    console.log("sisis tu scroll ")
     if(indexCircle == 1){
       isAnimating = true
-      gsap.to("#cover", {duration: 1, attr:{r:'7%'}, onComplete: () => {
+  
+    
+   
+        // desktop setup code here...
+        gsap.to('.containerTitleSpiral', {
+          x:'-50%',
+        opacity:0,
+          duration:1,
+         
+          ease: 'power2.out',
+      });
+      
+      gsap.to("#cover", {duration: 1, r:'7%', onComplete: () => {
         isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
         updateIndexAndScrollingCircle(0, 'up',true);
         gsap.set('.pathBurger', { stroke: `#fff` });
-     
+        gsap.to('#circleLogo', {
+          opacity: 1,
+          ease: 'power2.out',
+         duration:0.5
+        });
+        
       }});
       gsap.to('.containerDriven', {
         opacity: 1,
@@ -392,6 +501,8 @@ function handleScrollEventCircle(startY, endY) {
         ease: 'power2.out',
        
       });
+
+     
       /*gsap.set('', { clipPath: `circle(100% at center)` });
       isAnimating = true;
       gsap.to('', {
@@ -517,8 +628,7 @@ new fullpage("#fullPage", {
       if(window.innerWidth <= 1024){
         
         fullpage_api.setAllowScrolling(false, "down");
-        animateElementY(".titreSection2", {   opacity: 1, x:0 });
-        animateElementY(".textSection2", {   opacity: 1, x:0 });
+       
         animateElementY(".ligneVertical1", { x: '', y: '-85%'});
         animateElementY("#containerDiv", {  x:0, y:'55%' });
         gsap.to(".ligneHorizontal", {
@@ -527,8 +637,23 @@ new fullpage("#fullPage", {
           transformOrigin: "left", // La durée de l'animation en secondes, ici alignée avec fullPage.js
           ease: "power2.inOut", // Le type d'effet d'accélération pour l'animation
         });
+
+        gsap.to('.titreSection2', {                      //DESKTOP
+            duration: 1,
+            transform: 'translateX(0%)',
+            opacity:1,
+            ease: 'power2.out'
+          });
+      
+          gsap.to('.textSection2', {                       //DESKTOP
+            duration: 1,
+            transform: 'translateX(0%)',
+            opacity:1,
+            delay:0.2,
+            ease: 'power2.out'
+          });
   
-        animateElementY(".containerSousAccueil", { x: '', y: '0', opacity: 1 });
+        
       }else{
         fullpage_api.setAllowScrolling(false, 'down');
        
@@ -549,26 +674,28 @@ new fullpage("#fullPage", {
     
         gsap.to('.titreSection2', {                      //DESKTOP
           duration: 1,
-          x: '50%',
+          transform: 'translateX(0%)',
           opacity:1,
           ease: 'power2.out'
         });
     
         gsap.to('.textSection2', {                       //DESKTOP
           duration: 1,
-          x: '50%',
+          transform: 'translateX(0%)',
           opacity:1,
           delay:0.2,
           ease: 'power2.out'
         });
     
         
-        gsap.to('#containerDiv', {                       //DESKTOP
-          duration: 1,
-          x: '0',
-          opacity:1,
-          ease: 'power2.out'
-        });
+        gsap.to('.divTest1', {                       //DESKTOP
+            duration: 1,
+            y: '0',
+            opacity:1,
+            delay:0.2,
+            ease: 'power2.out'
+          });
+     
       }
      
     }
@@ -577,7 +704,7 @@ new fullpage("#fullPage", {
 
       if(window.innerWidth <= 1024){
         animateElementY(".ligneVertical1", { x: '', y: '0' });
-
+        
         gsap.to(".ligneHorizontal", {
           scaleX: 1, // Multiplier l'échelle en X par 2
           duration: 1.5,
@@ -585,7 +712,21 @@ new fullpage("#fullPage", {
           ease: "power2.inOut", // Le type d'effet d'accélération pour l'animation
         });
   
-        animateElementY(".containerSousAccueil", { x: '', y: '100%', opacity: 0 });
+        gsap.to('.titreSection2', {                      //DESKTOP
+            duration: 1,
+            transform: 'translateX(-50%)',
+            opacity:0,
+            ease: 'power2.out'
+          });
+      
+          gsap.to('.textSection2', {                       //DESKTOP
+            duration: 1,
+            transform: 'translateX(-50%)',
+            opacity:0,
+            delay:0.2,
+            ease: 'power2.out'
+          });
+  
   
         document.removeEventListener("wheel", handleWheel, { passive: false });
         document.removeEventListener("touchstart", handleTouchStart, {
@@ -615,24 +756,25 @@ new fullpage("#fullPage", {
         gsap.to('.titreSection2', {                          //DESKTOP
           duration: 1,  
           opacity:0,
-          x: '-50%',
+          transform: 'translateX(-50%)',
           ease: 'power2.out'
         });
     
         gsap.to('.textSection2', {                           //DESKTOP
           duration: 1,
-          x: '-50%',
+          transform: 'translateX(-50%)',
           opacity:0,
           delay:0.2,
           ease: 'power2.out'
         });
     
-        gsap.to('#containerDiv', {                       //DESKTOP
-          duration: 1,
-          opacity:0,
-          x: '50%',
-          ease: 'power2.out'
-        });
+        gsap.to('.divTest1', {                       //DESKTOP
+            duration: 1,
+            y: '100%',
+            opacity:1,
+            delay:0.2,
+            ease: 'power2.out'
+          });
         fullpage_api.setAllowScrolling(true, 'down');
         document.removeEventListener('wheel', handleWheel, { passive: false });
         document.removeEventListener('touchstart', handleTouchStart, { passive: false });
@@ -643,21 +785,35 @@ new fullpage("#fullPage", {
      
     } else if (origin.index === 2 && destination.index === 1) {
       if(window.innerWidth <= 1024){
-      animateElementY(".divTest4",{  opacity: 1 });
-      animateElementY(".ligneVertical1", { x: '', y: '40%', opacity: 1 });
-      animateElementY(".titleDriven", { x: '-65%', y: '', opacity: 0 });
-      animateElementY(".textDriven", { x: '-65%', y: '', opacity: 0 }, 0.1);
-      animateElementY(".spanDriven", { x: '-65%', y: '', opacity: 0 }, 0.2);
-      animateElementY(".ancreDriven", { x: '-65%', y: '', opacity: 0 }, 0.3);
+      
+      gsap.fromTo(".divTest4", { y: '100%' }, { y: '0', duration: 1,ease: 'Power0.easeNone', overwrite: 'auto',opacity:1});
+
+      gsap.to(".ligneVertical1", {
+        duration: 1,
+        y: "-85%",
+        opacity: 1,
+        ease: "power2.out",
+        
+      
+      });
+      animateElementY(".titleDriven", { x: '65%', y: '', opacity: 0.5 });
+      animateElementY(".textDriven", { x: '65%', y: '', opacity: 0.5 }, 0.1);
+      animateElementY(".spanDriven", { x: '65%', y: '', opacity: 0.5}, 0.2);
+      animateElementY(".ancreDriven", { x: '65%', y: '', opacity: 0.5 }, 0.3);
       fullpage_api.setAllowScrolling(false, "up");
-      fullpage_api.setAllowScrolling(true, "down");}
+      fullpage_api.setAllowScrolling(true, "down");
+      document.removeEventListener('wheel', handleWheelCircle, { passive: false });
+      document.removeEventListener('touchstart', handleTouchStartCircle, { passive: false });
+      document.removeEventListener('touchmove', handleTouchMoveCircle, { passive: false });
+      document.removeEventListener('touchend', handleTouchEndCircle, { passive: false });
+    }
       else{
         gsap.to('.divTest4', {
           duration: 1,
           opacity: 1,
           ease: 'power2.out'
         });
-    
+        fullpage_api.setAllowScrolling(true, "down");
         gsap.to('.ligneVertical1', {
           duration: 1.3, // durée en secondes
           y: '-85%', // déplace la ligne vers le haut
@@ -667,14 +823,14 @@ new fullpage("#fullPage", {
     
     gsap.to('.titreSection2', {                      //DESKTOP
       duration: 1,
-      x: '50%',
+      transform: 'translateX(0%)',
       opacity:1,
       ease: 'power2.out'
     });
     
     gsap.to('.textSection2', {                       //DESKTOP
       duration: 1,
-      x: '50%',
+      transform: 'translateX(0%)',
       opacity:1,
       delay:0.2,
       ease: 'power2.out'
@@ -689,13 +845,13 @@ new fullpage("#fullPage", {
     });
     
     
-    gsap.to('#containerDiv', {                       //DESKTOP
+    gsap.to('.divTest3', {
       duration: 1,
-      x: '0',
-      opacity:1,
+      opacity: 1,
+      y:'0',
       ease: 'power2.out'
     });
-    
+
     gsap.to('.titleDriven1', {
       duration: 1.2,
       x: '65%',
@@ -737,8 +893,15 @@ new fullpage("#fullPage", {
       }
     } else if (origin.index === 1 && destination.index === 2) {
       if(window.innerWidth <= 1024){
-      animateElementY(".divTest4", {  opacity: 0 });
-      animateElementY(".ligneVertical1", {  y: '-40%'});
+      animateElementY(".divTest4", {  opacity: 0,y:'100%' });
+      gsap.to(".ligneVertical1", {
+        duration: 1,
+        y: "200%",
+        opacity: 1,
+        ease: "power2.out",
+        
+      
+      });
       animateElementY(".titleDriven", { x: '0', y: '', opacity: 1 });
       animateElementY(".textDriven", { x: '0', y: '', opacity: 1 }, 0.1);
       animateElementY(".spanDriven",{ x: '0', y: '', opacity: 1 }, 0.2);
@@ -753,9 +916,11 @@ new fullpage("#fullPage", {
       document.removeEventListener("touchend", handleTouchEnd, {
         passive: false,
       });
-      fullpage_api.setAllowScrolling(true, "up,down");}
+      fullpage_api.setAllowScrolling(false, "down");
+    }
       else{
-        
+        console.log('oui oui')
+        fullpage_api.setAllowScrolling(false, 'down')
     gsap.to('.divTest4', {
       duration: 1,
       opacity: 0,
@@ -766,20 +931,27 @@ new fullpage("#fullPage", {
       duration: 1.3, // durée en secondes
       y: '200%', // déplace la ligne vers le haut
       ease: 'power2.out',
+      
    // effet d'accélération pour l'animation
 });
 
+gsap.to('.divTest3', {
+  duration: 1,
+  opacity: 0,
+  y:'100%',
+  ease: 'power2.out'
+});
 
 gsap.to('.titreSection2', {                          //DESKTOP
   duration: 1,  
-  x: '-50%',
+  transform: 'translateX(-50%)',
   opacity:0,
   ease: 'power2.out'
 });
 
 gsap.to('.textSection2', {                           //DESKTOP
   duration: 1,
-  x: '-50%',
+  transform: 'translateX(-50%)',
   opacity:0,
   delay:0.2,
   ease: 'power2.out'
@@ -793,12 +965,7 @@ gsap.to('.texteBtn1', {                       //DESKTOP
   ease: 'power2.out'
 });
 
-gsap.to('#containerDiv', {                       //DESKTOP
-  duration: 1,
-  opacity:0,
-  x: '50%',
-  ease: 'power2.out'
-});
+
 
 gsap.to('.titleDriven', {
   duration: 1,
@@ -838,24 +1005,62 @@ gsap.to('.ancreDriven', {
     document.removeEventListener('touchmove', handleTouchMove, { passive: false });
     document.removeEventListener('touchend', handleTouchEnd, { passive: false });
     fullpage_api.setAllowScrolling(true, 'up');
-    fullpage_api.setAllowScrolling(false, 'down');
+;
   }
     } else if (origin.index === 2 && destination.index === 3) {
-      fullpage_api.setAllowScrolling(false, "down");
+  
+      gsap.to('.ligneVertical1', {
+        duration: 1, // durée en secondes
+        ease: 'power2.out',
+        transform:'translateY(125%)'
+      // effet d'accélération pour l'animation
+      });
 
-      animateElementY(".titleDriven", { x: '-100%', y: '', opacity: 0 });
+      gsap.to(".anim-container p:nth-child(1)", { duration: 1, opacity: 1, delay: 0, x:0 });
+      gsap.to(".anim-container p:nth-child(2)", { duration: 1, opacity: 1, delay: 0.325, x:0 });
+      gsap.to(".anim-container p:nth-child(3)", { duration: 1, opacity: 1, delay: 0.625, x:0 });
+      gsap.to(".anim-container p:nth-child(4)", { duration: 1, opacity: 1, delay: 0.925, x:0 });
+
+
+      gsap.to(".titreContact span:nth-of-type(1)", { duration: 1, opacity: 1, transform: "translateY(0)"});
+      gsap.to(".titreContact span:nth-of-type(2)", { duration: 1, opacity: 1, transform: "translateX(0)"});
+
+      gsap.to(".containerTitreContact img , .copyright", { 
+       // Durée de l'animation
+        opacity: 1, // Animation de l'opacité
+     // Déplacement en X
+        delay: 0.5 // Délai avant le début de l'animation
+    });
+     /* animateElementY(".titleDriven", { x: '-100%', y: '', opacity: 0 });
 
       animateElementY(".textDriven", { x: '-100%', y: '', opacity: 0 }, 0.1);
       animateElementY(".spanDriven",{ x: '-100%', y: '', opacity: 0 }, 0.2);
-      animateElementY(".ancreDriven", { x: '-100%', y: '', opacity: 0 }, 0.3);
+      animateElementY(".ancreDriven", { x: '-100%', y: '', opacity: 0 }, 0.3);*/
     } else if (origin.index === 3 && destination.index === 2) {
-      animateElementY(".titleDriven", { x: '0', y: '', opacity: 1 });
+      /*animateElementY(".titleDriven", { x: '0', y: '', opacity: 1 });
       animateElementY(".textDriven", { x: '0', y: '', opacity: 1 }, 0.1);
       animateElementY(".spanDriven", { x: '0', y: '', opacity: 1 }, 0.2);
-      animateElementY(".ancreDriven", { x: '0', y: '', opacity: 1 }, 0.3);
+      animateElementY(".ancreDriven", { x: '0', y: '', opacity: 1 }, 0.3);*/
 
+      gsap.to('.ligneVertical1', {
+        duration: 1, // durée en secondes
+        ease: 'power2.out',
+        transform:'translateY(220%)'
+      // effet d'accélération pour l'animation
+      });
+
+      gsap.to(".anim-container p:nth-child(1)", { duration: 1, opacity: 1, delay: 0, x:'-40%' });
+      gsap.to(".anim-container p:nth-child(2)", { duration: 1, opacity: 1, delay: 0.325, x:'-40%' });
+      gsap.to(".anim-container p:nth-child(3)", { duration: 1, opacity: 1, delay: 0.625, x:'-40%' });
+      gsap.to(".anim-container p:nth-child(4)", { duration: 1, opacity: 1, delay: 0.925, x:'-40%' });
+
+
+      gsap.to(".titreContact span:nth-of-type(1)", { duration: 1, opacity: 1, transform: "translateY(100%)"});
+      gsap.to(".titreContact span:nth-of-type(2)", { duration: 1, opacity: 1, transform: "translateX(-100%)"});
+
+    
       fullpage_api.setAllowScrolling(true, "down");
-
+      fullpage_api.setAllowScrolling(false, "up");
       document.removeEventListener("wheel", handleWheelCircle, {
         passive: false,
       });
@@ -868,7 +1073,7 @@ gsap.to('.ancreDriven', {
       document.removeEventListener("touchend", handleTouchEndCircle, {
         passive: false,
       });
-    } else if (origin.index === 3 && destination.index === 4) {
+    } /*else if (origin.index === 3 && destination.index === 4) {
       document.removeEventListener("wheel", handleWheelCircle, {
         passive: false,
       });
@@ -912,18 +1117,18 @@ gsap.to('.ancreDriven', {
       if (animationTextPath2) {
         animationTextPath2.pause();
       }
-    }
+    }*/
   },
   afterLoad: function (origin, destination, direction) {
     // ... Votre logique existante ici ...
-
+console.log('oui non',destination.index)
     if (destination.index == 4) {
-      fullpage_api.setAllowScrolling(true, "up");
+     
     }
 
     if (destination.index == 3) {
-
-
+     
+      fullpage_api.setAllowScrolling(true, "up");
       if(window.innerWidth <= 1024){
       document.addEventListener("wheel", handleWheelCircle, { passive: false });
       document.addEventListener("touchstart", handleTouchStartCircle, {
@@ -941,19 +1146,16 @@ gsap.to('.ancreDriven', {
       }
 
     }
-    }if (destination.index == 2 && window.innerWidth >= 1025) {
+    }
+    if (destination.index == 2) {
       document.addEventListener('wheel', handleWheelCircle, { passive: false });
       document.addEventListener('touchstart', handleTouchStartCircle, { passive: false });
       document.addEventListener('touchmove', handleTouchMoveCircle, { passive: false });
       document.addEventListener('touchend', handleTouchEndCircle, { passive: false });
-    
-    
-      if(origin.index == 3){
-        fullpage_api.setAllowScrolling(false, 'up');
-      }
+      
     }
     if (destination.index == 1) {
-      fullpage_api.setAllowScrolling(false, "down");
+      
       document.addEventListener("wheel", handleWheel, { passive: false });
       document.addEventListener("touchstart", handleTouchStart, {
         passive: false,
@@ -963,7 +1165,10 @@ gsap.to('.ancreDriven', {
       });
       document.addEventListener("touchend", handleTouchEnd, { passive: false });
     } else {
-      //fullpage_api.setAllowScrolling(true, 'down');
+      console.log('hihi')
+     
+  
+     
       document.removeEventListener("wheel", handleWheel, { passive: false });
       document.removeEventListener("touchstart", handleTouchStart, {
         passive: false,
@@ -980,17 +1185,6 @@ gsap.to('.ancreDriven', {
 
 
 
-let resizeTimer;
-
-function handleResizeStart() {
-  document.querySelector('.divResize').style.zIndex=  '1';
-}
-
-function handleResizeEnd() {
-   document.querySelector('.divResize').style.zIndex= '0';
-
-  
-}
 
 
 
@@ -1007,26 +1201,20 @@ function getIndexForViewChange(isMobileView, currentIndex) {
   if (isMobileView) {
     
    
-
-    console.log('desktop a mobile')
+    animateElementY('#containerDiv', {  y: '55%', opacity: 1 });
     animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '-55%', opacity: 1 });
-    animateElementY("#containerDiv", {  y: '55%', opacity: 1, x:0 });
-    
+    animateElementY('.divTest4', {  y: '100%' });
+   
     if(currentIndex === 0 ){
-      fullpage_api.setAllowScrolling(false, "up");
-      animateElementY(DIV_TEST_SELECTORS[0],  {  y: '0%', opacity: 1 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
- 
+        fullpage_api.setAllowScrolling(false, "up");
+        animateElementY(DIV_TEST_SELECTORS[0], {  y: '0%', opacity: 1 });
+        
       index = 1
       return 1
     }
 
     if(currentIndex === 1){
-      fullpage_api.setAllowScrolling(false, "up");
-      animateElementY(DIV_TEST_SELECTORS[0],  {  y: '100%', opacity: 1 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
+
     
       index = 2
       return 2
@@ -1034,118 +1222,68 @@ function getIndexForViewChange(isMobileView, currentIndex) {
 
     if(currentIndex === 2){
       fullpage_api.setAllowScrolling(false, "up, down");
-      animateElementY(DIV_TEST_SELECTORS[0],  {  y: '100%', opacity: 1 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
+     
     
 
-      animateElementY(DIV_TEST_SELECTORS[3],  {  y: '100%', opacity: 1 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
       index = 3
       return 4
     }
 
   } else {
    
-    fullpage_api.setAllowScrolling(false, 'up');
-    animateElement(DIV_TEST_SELECTORS[0], '0%', 1, () => {
-      //updateIndexAndScrolling(0, 'up',false);
-    });
+ 
+    animateElementY('#containerDiv', {  y: '0%', opacity: 1 });
+    animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '0%', opacity: 1 });
    
-    animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '0', opacity: 1 });
-    animateElementY("#containerDiv", {  y: '0%', opacity: 1 });
-
-
-    fullpage_api.setAllowScrolling(false, 'down');
-
-    // Animer la ligne verticale avec GSAP
-    gsap.to('.ligneVertical1', {
-      duration: 2, // durée en secondes
-      y: '-85%', // déplace la ligne vers le haut
-      ease: 'power2.out' // effet d'accélération pour l'animation
-    });
-
-    gsap.to('.ligneHorizontal', {
-      scaleX: 0.1, // Multiplier l'échelle en X par 2
-      duration: 2,
-      transformOrigin: 'left', // La durée de l'animation en secondes, ici alignée avec fullPage.js
-      ease: 'power2.inOut' // Le type d'effet d'accélération pour l'animation
-    });
-
-
-    gsap.to('.titreSection2', {                      //DESKTOP
-      duration: 1,
-      x: '50%',
-      opacity:1,
-      ease: 'power2.out'
-    });
-
-    gsap.to('.textSection2', {                       //DESKTOP
-      duration: 1,
-      x: '50%',
-      opacity:1,
-      delay:0.2,
-      ease: 'power2.out'
-    });
-
-    
-    gsap.to('#containerDiv', {                       //DESKTOP
-      duration: 1,
-      x: '0',
-      opacity:1,
-      ease: 'power2.out'
-    });
-    console.log('mobile a desktop',currentIndex)
     if(currentIndex === 0 ){
       
-    
+        animateElementY('.divTest1', {  y: '0%', opacity: 1 });
   
       index = 0
       return 0
     }
 
     if(currentIndex === 1 ){
-     
+      animateElementY('.texteBtn1', {  y: '100%' });
      index = 0
       return 0
     }
 
     if(currentIndex === 2){
-      animateElement('.texteBtn1', '100%', 1)
-      animateElementY(DIV_TEST_SELECTORS[0],  {  y: '100%', opacity: 0 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
+     
+      animateElementY('.texteBtn1', {  y: '100%' });
     index = 1
       return 1
     }
 
-    if(currentIndex === 3 || currentIndex === 4){
+    if(currentIndex === 3 ){
 
-   
+   console.log('ok')
      
-        animateElement('.texteBtn1', '0', 1)
+   animateElementY('.texteBtn1', {  y: '0%' });
   
-      
-      animateElementY(DIV_TEST_SELECTORS[0],  {  y: '100%', opacity: 0 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
+    index = 2
+      return 2
+    }
 
-      animateElementY(DIV_TEST_SELECTORS[1],  {  y: '100%', opacity: 0 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
+    if(currentIndex === 4 ){
 
+      animateElementY('.divTest3', {  y: '0%', opacity: 1 });
+      animateElementY('.texteBtn1', {  y: '0%',opacity:1 });
+   gsap.to('.titreSection2', {                      //DESKTOP
+    duration: 1,
+    transform: 'translateX(0%)',
+    opacity:1,
+    ease: 'power2.out'
+  });
 
-      animateElementY(DIV_TEST_SELECTORS[2],  {  y: '0%', opacity: 1 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
-
-      animateElementY(CONTAINER_SOUS_ACCUEIL,  {  x: '0%', opacity: 1 }, () => {
-        //updateIndexAndScrolling(1, "up", false);
-      });
-
-     
-
+  gsap.to('.textSection2', {                       //DESKTOP
+    duration: 1,
+    transform: 'translateX(0%)',
+    opacity:1,
+    delay:0.2,
+    ease: 'power2.out'
+  });
   
     index = 2
       return 2
@@ -1164,7 +1302,7 @@ function handleResize() {
   const SECTION_CIBLE = 'section2';
   const currentIndex = fullpage_api.getActiveSection().item.id
 
-  console.log(currentIndex)
+ 
 
   if (currentState.isMobileView !== newIsMobileView && currentIndex === SECTION_CIBLE ) {
     // Ajustez l'index seulement si le type de vue a changé 
@@ -1173,27 +1311,202 @@ function handleResize() {
   
   }else if(currentState.isMobileView !== newIsMobileView && currentIndex == 'section1'){
     if (newIsMobileView) {
-      document.querySelector('.titreSection2').style.transform='translateX(0)'
-      document.querySelector('.titreSection2').style.opacity='1'
-    document.querySelector('.textSection2').style.transform='translateX(0)'
-    document.querySelector('.textSection2').style.opacity='1'  // par rapport a la resize  
-    document.querySelector('#containerDiv').style.transform='translate(0,55%)'
-   
+    
+      
+document.querySelector(".divTest4").style.transform="translateY(100%)"
       index = 0
     
     } else {
+
+        animateElementY('#containerDiv', {  y: '0%', opacity: 1 });
+    animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '0%', opacity: 1 });
       index = 0
     
     }  
   }
 
+  else if(currentState.isMobileView !== newIsMobileView && currentIndex == 'section4'){
+    if (newIsMobileView) {
+    
+      animateElementY('#containerDiv', {  y: '55%', opacity: 1 });
+      animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '-55%', opacity: 1 });
+      index = 4
+
+      if(indexCircle == 1 || indexCircle == 2 || indexCircle == 3){
+        gsap.to("#cover", {
+          duration: 1,
+          r:'130%',
+        
+        });
+      }
+      
+    } else {
+     
+      animateElementY('#containerDiv', {  y: '0%'});
+      animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '0%', opacity: 1 });
+      index = 2
+
+      if(indexCircle == 1 || indexCircle == 2 || indexCircle == 3){
+        gsap.to("#cover", {
+          duration: 1,
+          r:'103%',
+        
+        });
+
+        gsap.to(".containerTitleSpiral1", {
+          duration: 1,
+          x:'50%',
+          opacity:1
+        });
+
+       console.log('okazzzz')
+        }
+    
+    }  
+   
+    
+  } else if(currentState.isMobileView !== newIsMobileView && currentIndex == 'section5'){
+    if (newIsMobileView) {
+    
+   index = 4
+   animateElementY('#containerDiv', {  y: '55%', opacity: 1 });
+   animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '-55%', opacity: 1 });
+
+      if(indexCircle == 1 || indexCircle == 2 || indexCircle == 3){
+        gsap.to("#cover", {
+          duration: 1,
+          r:'130%',
+        
+        });
+      }
+      
+    } else {
+     
+      index = 2
+
+      animateElementY('#containerDiv', {  y: '0%'});
+      animateElementY(CONTAINER_SOUS_ACCUEIL, {  y: '0%', opacity: 1 });
+      if(indexCircle == 1 || indexCircle == 2 || indexCircle == 3){
+        gsap.to("#cover", {
+          duration: 1,
+          r:'103%',
+        
+        });
+
+       
+
+        }
+    
+    }  
+   
+    
+  } 
  
   // Mise à jour du type de vue actuel
   currentState.isMobileView = newIsMobileView;
 }
-
+let resizeTimer;
 window.addEventListener('resize', () => {
     // Change la couleur de fond en vert dès le début du redimensionnement
-    
+    document.querySelector('.divResize').style.zIndex = '1';
+
+    // Efface le timer précédent
+    clearTimeout(resizeTimer);
+
+    // Définit un nouveau timer
+    resizeTimer = setTimeout(() => {
+        // Redimensionnement terminé, remettre le z-index à 0
+        document.querySelector('.divResize').style.zIndex = '0';
+    }, 300); 
     handleResize();
 });
+
+
+
+window.onload = function() {
+
+  
+  let counter = { value: 0 };
+
+  // Cibler l'élément où le décompte sera affiché
+  let counterElement = document.querySelector('.spanLoad')
+
+  // Utiliser GSAP pour animer cet objet
+  gsap.to(counter, {
+    value: 100, // Animer de 0 à 100
+    duration: 3, // Durée de l'animation en secondes
+    onUpdate: () => {
+      // À chaque mise à jour de l'animation, mettre à jour le texte de l'élément
+      counterElement.textContent = `${Math.round(counter.value)}%`;
+    },
+    ease: 'power1.inOut' // Type d'accélération, peut être ajusté
+  });
+
+  gsap.to('.ligne1', {                      //DESKTOP
+    duration: 3,
+    transform: 'scaleX(0.1)',
+    opacity:1,
+    ease: 'power1.inOut',
+    onComplete:()=>{
+      gsap.to('.coordonneesHeader', {                      //DESKTOP
+        duration: 1,
+        transform: 'translate(0%,0%)',
+        opacity:1,
+        ease: 'power2.out',
+        delay:0.4
+      });
+      
+    
+      gsap.to('#menuBurger', {                      //DESKTOP
+        duration: 1,
+        transform: 'translate(0%,0%)',
+        opacity:1,
+        ease: 'power2.out',
+        delay:0.4
+      });
+
+      gsap.to('.ligneVertical1', {                      //DESKTOP
+        duration: 1,
+        transform: 'scaleY(1)',
+        opacity:1,
+        ease: 'power2.out',
+        delay:0.2
+      });
+
+
+
+      gsap.to(' .containerMobilierDesktop', {                      //DESKTOP
+        duration: 1,
+        transform: 'translateY(0%)',
+        opacity:1,
+        ease: 'power2.out',
+        delay:0.3
+      });
+    
+      gsap.to('.rond', {                      //DESKTOP
+        duration: 1,
+        transform: 'translate(0%,0%)',
+        opacity:1,
+        ease: 'power2.out',
+        delay:0.4
+      });
+    
+      gsap.to('.ligne1', {                      //DESKTOP
+        duration: 1,
+        transform: 'scaleX(1)',
+        opacity:1,
+        ease: 'power1.inOut'})
+
+        gsap.to('.titreAccueil', {                      //DESKTOP
+          duration: 1,
+          transform: 'translateX(0)',
+          opacity:1,
+          ease: 'power1.inOut',
+        })
+    
+      counterElement.style.display='none'
+    }
+  });
+
+ 
+}
