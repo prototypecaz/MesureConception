@@ -738,6 +738,8 @@ new fullpage("#fullPage", {
         document.removeEventListener("touchend", handleTouchEnd, {
           passive: false,
         });
+
+        fullpage_api.setAllowScrolling(true, "down");
       }else{
         gsap.to('.ligneVertical1', {
           duration: 2, // durée en secondes
@@ -1010,7 +1012,7 @@ gsap.to('.ancreDriven', {
     } else if (origin.index === 2 && destination.index === 3) {
   
       gsap.to('.ligneVertical1', {
-        duration: 1, // durée en secondes
+        duration: 1.5, // durée en secondes
         ease: 'power2.out',
         transform:'translateY(125%)'
       // effet d'accélération pour l'animation
@@ -1164,7 +1166,7 @@ console.log('oui non',destination.index)
         passive: false,
       });
       document.addEventListener("touchend", handleTouchEnd, { passive: false });
-    } else {
+    }else {
       console.log('hihi')
      
   
