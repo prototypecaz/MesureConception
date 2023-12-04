@@ -479,7 +479,7 @@ justify-content: end;
     overflow: hidden;
     z-index: 1;
     position: absolute;
-    transform: translate(0,55%);
+    transform: translateY(55%);
     width: 100%;
     margin-top:2rem;
 }
