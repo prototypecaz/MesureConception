@@ -13,19 +13,22 @@
 
 <body>
     <div class="containerBurgerMenu">
-        <svg id="menuBurger" fill="none" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
-            <path class="pathBurger" d="m12 7h7m-14 5h14m-14 5h7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <svg id="menuBurger"  fill="none" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
+            <path class="pathBurger"  d="m12 7h7m-14 5h14m-14 5h7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
         </svg>
-        <div id="menu" >
+      
+            <div class="menu" >
                 <div class="containerAncre">
                     <div>
-                        <a href="">SERVICES</a>
-                        <a href="">A PROPOS</a>
-                        <a href="">PROJET</a>
-                        <a href="">MOBILIER</a>
+                        <a href="" class="ancre">SERVICES</a>
+                        <a href="" class="ancre">A PROPOS</a>
+                        <a href="" class="ancre">PROJET</a>
+                        <a href="" class="ancre">MOBILIER</a>
                     </div>
                 </div>
+       
         </div>
+      
     </div>
 
     <div class="divResize">
@@ -275,21 +278,30 @@
             </div>
 
           
-           
-            <svg id="demo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100vh" style='position:absolute; top:0;'>
-                <defs>
-                    <mask id="theMask">
-                        <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
-                        <circle id="cover"  fill="black" />
+                <svg id="demo "  xmlns="http://www.w3.org/2000/svg" width="100vw" height="100vh"      style='position:absolute; top:0;left:0;display:block'>
+                    <filter id="contrastFilter">
+                        <feComponentTransfer>
+                            <feFuncR type="linear" slope="10" />
+                            <feFuncG type="linear" slope="10" />
+                            <feFuncB type="linear" slope="10" />
+                        </feComponentTransfer>
+                    </filter>
+                    <defs>
+                        <mask id="theMask">
+                            <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
+                            <circle id="cover" cx="20%" cy="85%" r="7%" fill="black" />
+            <!-- Définissez les dimensions de l'image en pourcentage -->
+            <image id="circleLogo" xlink:href="./assets/images/logoMesure.png" x="11%" y="76%" height="18%" width="18%"  filter="url(#contrastFilter)" />
+                        </mask>  
+                    </defs>
                 
-                        <image id="circleLogo" xlink:href="./assets/images/logo.png"  />
-                    </mask>  
-                </defs>
+                    <g mask="url(#theMask)" > 
+                        <rect id="goAway"  width="100%" height="100%" fill="#000" />
+                    </g>
+                </svg>
+          
+       
             
-                <g mask="url(#theMask)"> 
-                    <rect id="goAway" x="0" y="0" width="100%" height="100%" fill="#000" />
-                </g>
-            </svg>
             
             
              <div class="containerDriven">

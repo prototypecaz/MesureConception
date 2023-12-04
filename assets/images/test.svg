@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="demo " xml:space="preserve" xmlns="http://www.w3.org/2000/svg" width="100" height="100"  viewBox="0 0 100 100" >
+             
+     <defs>
+         <mask id="theMask">
+             <rect x="0" y="0" width="100" height="100" fill="#fff" />
+             <circle id="cover"  fill="black" />
+     
+            
+         </mask>  
+     </defs>
+
+     <g mask="url(#theMask)" fill="black"> 
+         <rect id="goAway"  width="100" height="100" fill="#000" />
+     </g>
+ </svg>

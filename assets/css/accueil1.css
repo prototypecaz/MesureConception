@@ -40,7 +40,12 @@ body{
     text-decoration: none;
     border-bottom: 1px solid white;
     padding-bottom: 1.5rem;
-    transform: translateY(-100%);
+
+}
+
+.burger{
+    transform: rotate(90deg)!important;
+    
 }
 
 .texteBtn1{
@@ -57,14 +62,25 @@ body{
   transform: translateY(100%);
   opacity: 0;
 }
-#menu {
+
+
+
+.menu {
     background-color: rgb(0, 0, 0);
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     transform: translateX(100%);
-       box-shadow: inset 10px 0 10px -10px rgb(255, 255, 255)
+    right:0;
+    transition: transform 0.3s linear;
+      mix-blend-mode: difference;
+}
+
+
+.menuOpen{
+    transform: translate(0);
+    transition: transform 0.3s linear;
 }
 .containerMobilierDesktop > p {
 
@@ -84,6 +100,7 @@ padding-right: 0.5rem;
     transform: translate(100%,-100%);
     cursor: pointer;
     z-index: 1;
+    
 }
 
 circle {
@@ -98,6 +115,7 @@ circle {
      y:76%;
       height:18%;
        width:18%;
+       z-index: 3;
       
 }
 
@@ -1186,7 +1204,7 @@ padding-bottom: 2rem;
     }
 
     .containerBurgerMenu{
-        width: 40vw;
+        width: 40%;
     }
 
     .containerAdressContact{

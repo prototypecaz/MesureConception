@@ -303,7 +303,7 @@ function handleScrollEventCircle(startY, endY) {
         onComplete: () => {
           isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
           updateIndexAndScrollingCircle(1, "up", false);
-          gsap.set(".pathBurger", { stroke: `#727272` });
+          gsap.set(".pathBurger", { stroke: `black` });
          
         },
       });
@@ -333,7 +333,7 @@ function handleScrollEventCircle(startY, endY) {
       gsap.to("#cover", {duration: 1, r:'103%', onComplete: () => {
         isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
         updateIndexAndScrollingCircle(1, 'up',false);
-        gsap.set('.pathBurger', { stroke: `#727272` });
+        gsap.set('.pathBurger', { stroke: `black` });
       
          //gsap.to('.imageElement', { y: 0, duration: 0.7 });
          //gsap.to('.titleElement', { x: 0, duration: 0.7 });
@@ -439,7 +439,7 @@ function handleScrollEventCircle(startY, endY) {
         onComplete: () => {
           isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
           updateIndexAndScrollingCircle(0, "up", true);
-          gsap.set(".pathBurger", { stroke: `#fff` });
+          gsap.set(".pathBurger", { stroke: `white` });
           gsap.to('#circleLogo', {
             opacity: 1,
             ease: 'power2.out',
@@ -486,7 +486,7 @@ function handleScrollEventCircle(startY, endY) {
       gsap.to("#cover", {duration: 1, r:'7%', onComplete: () => {
         isAnimating = false; // Réinitialiser isAnimating à false une fois l'animation terminée
         updateIndexAndScrollingCircle(0, 'up',true);
-        gsap.set('.pathBurger', { stroke: `#fff` });
+        gsap.set('.pathBurger', { stroke: `white` });
         gsap.to('#circleLogo', {
           opacity: 1,
           ease: 'power2.out',
@@ -1010,7 +1010,12 @@ gsap.to('.ancreDriven', {
 ;
   }
     } else if (origin.index === 2 && destination.index === 3) {
-  
+
+      
+     document.removeEventListener('wheel', handleWheelCircle, { passive: false });
+    document.removeEventListener('touchstart', handleTouchStartCircle, { passive: false });
+    document.removeEventListener('touchmove', handleTouchMoveCircle, { passive: false });
+    document.removeEventListener('touchend', handleTouchEndCircle, { passive: false });
       gsap.to('.ligneVertical1', {
         duration: 1.5, // durée en secondes
         ease: 'power2.out',
@@ -1038,6 +1043,7 @@ gsap.to('.ancreDriven', {
       animateElementY(".textDriven", { x: '-100%', y: '', opacity: 0 }, 0.1);
       animateElementY(".spanDriven",{ x: '-100%', y: '', opacity: 0 }, 0.2);
       animateElementY(".ancreDriven", { x: '-100%', y: '', opacity: 0 }, 0.3);*/
+    
     } else if (origin.index === 3 && destination.index === 2) {
       /*animateElementY(".titleDriven", { x: '0', y: '', opacity: 1 });
       animateElementY(".textDriven", { x: '0', y: '', opacity: 1 }, 0.1);
@@ -1050,7 +1056,7 @@ gsap.to('.ancreDriven', {
         transform:'translateY(220%)'
       // effet d'accélération pour l'animation
       });
-
+      gsap.set(".pathBurger", { stroke: `black` });
       gsap.to(".anim-container p:nth-child(1)", { duration: 1, opacity: 1, delay: 0, x:'-40%' });
       gsap.to(".anim-container p:nth-child(2)", { duration: 1, opacity: 1, delay: 0.325, x:'-40%' });
       gsap.to(".anim-container p:nth-child(3)", { duration: 1, opacity: 1, delay: 0.625, x:'-40%' });
@@ -1063,18 +1069,7 @@ gsap.to('.ancreDriven', {
     
       fullpage_api.setAllowScrolling(true, "down");
       fullpage_api.setAllowScrolling(false, "up");
-      document.removeEventListener("wheel", handleWheelCircle, {
-        passive: false,
-      });
-      document.removeEventListener("touchstart", handleTouchStartCircle, {
-        passive: false,
-      });
-      document.removeEventListener("touchmove", handleTouchMoveCircle, {
-        passive: false,
-      });
-      document.removeEventListener("touchend", handleTouchEndCircle, {
-        passive: false,
-      });
+     
     } /*else if (origin.index === 3 && destination.index === 4) {
       document.removeEventListener("wheel", handleWheelCircle, {
         passive: false,
@@ -1125,29 +1120,17 @@ gsap.to('.ancreDriven', {
     // ... Votre logique existante ici ...
 console.log('oui non',destination.index)
     if (destination.index == 4) {
-     
+    
     }
 
     if (destination.index == 3) {
      
       fullpage_api.setAllowScrolling(true, "up");
-      if(window.innerWidth <= 1024){
-      document.addEventListener("wheel", handleWheelCircle, { passive: false });
-      document.addEventListener("touchstart", handleTouchStartCircle, {
-        passive: false,
-      });
-      document.addEventListener("touchmove", handleTouchMoveCircle, {
-        passive: false,
-      });
-      document.addEventListener("touchend", handleTouchEndCircle, {
-        passive: false,
-      });
+     
+      gsap.set(".pathBurger", { stroke: `white` });
 
-      if (origin.index == 4) {
-        fullpage_api.setAllowScrolling(false, "up");
-      }
 
-    }
+    
     }
     if (destination.index == 2) {
       document.addEventListener('wheel', handleWheelCircle, { passive: false });
@@ -1436,7 +1419,7 @@ window.onload = function() {
   // Utiliser GSAP pour animer cet objet
   gsap.to(counter, {
     value: 100, // Animer de 0 à 100
-    duration: 3, // Durée de l'animation en secondes
+    duration: 0.8, // Durée de l'animation en secondes
     onUpdate: () => {
       // À chaque mise à jour de l'animation, mettre à jour le texte de l'élément
       counterElement.textContent = `${Math.round(counter.value)}%`;
@@ -1445,7 +1428,7 @@ window.onload = function() {
   });
 
   gsap.to('.ligne1', {                      //DESKTOP
-    duration: 3,
+    duration: 0.8,
     transform: 'scaleX(0.1)',
     opacity:1,
     ease: 'power1.inOut',
